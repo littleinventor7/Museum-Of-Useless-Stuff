@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Museum Of Useless Stuff</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+<body onload="applySound(y)">
+<script>
+   let x = parseInt(localStorage.getItem("x")) || 0;
+    if (x >= 2) {x = 0;}
+   let y = parseInt(localStorage.getItem("y")) || 0;
+   let isblur =parseInt(localStorage.getItem("isblur")) || 0;
+    if (y >= 2) y = 0;
+    let degree = 360;
+    applyTheme(x); 
+    applySound(y);
+    function applyTheme(themeIndex) {
+         if(themeIndex%2){ 
+           document.body.classList.add('dark-theme');
+            document.getElementById("wel").style.color = "#F4E3C6";
+            document.getElementById("phome").style.color = "#F4E3C6";
+            document.getElementById("title").style.color = "#F4E3C6";
+            document.getElementById("home").style.color = "#F4E3C6";
+            document.getElementById("gallery").style.color = "#F4E3C6";
+            document.getElementById("guestbook").style.color = "#F4E3C6";
+            }
+            else{
+               document.body.classList.remove('dark-theme');
+            document.getElementById("wel").style.color = "#6F4D29";
+            document.getElementById("phome").style.color = "#6F4D29";
+            document.getElementById("title").style.color = "#6F4D29";
+            document.getElementById("home").style.color = "#6F4D29";
+            document.getElementById("gallery").style.color = "#6F4D29";
+            document.getElementById("guestbook").style.color = "#6F4D29";
+            }
+    resetImage('imgg1','1');
+    resetImage('imgg2','2');
+    resetImage('imgg3','3');
+    resetImage('imgg4','4');
+    resetImage('imgg5','5');
+    resetImage('imgg6','6');
+    resetImage('imgg7','7');
+    resetImage('imgg8','8');
+    resetImage('imgg9','9');
+    resetImage('imgg10','10');
+    }
+    function toggleThemeFromButton() {
+   
+          x = (x + 1) % 2;
+        localStorage.setItem("x", x);
+            applyTheme(x);
+    resetImage('imgg1','1');
+    resetImage('imgg2','2');
+    resetImage('imgg3','3');
+    resetImage('imgg4','4');
+    resetImage('imgg5','5');
+    resetImage('imgg6','6');
+    resetImage('imgg7','7');
+    resetImage('imgg8','8');
+    resetImage('imgg9','9');
+    resetImage('imgg10','10');
+        }
+    
+    
+    function toggleSoundfrombutton() {
+        y = (y + 1) % 2;
+        localStorage.setItem("y", y);
+            applySound(y);
+    }
+    function applySound(y) {
+        if(y%2 === 0) {
+            document.getElementById('sound').src = 'vecteezy_volume-sound-icon-black_22691834.png';
+            document.getElementById('audio').play();
+        } else {
+            document.getElementById('sound').src = 'vecteezy_volume-sound-icon-black_22691818.png';
+            document.getElementById('audio').pause();
+       }
+       
+    }
+    degree = 360;
+    function rotatethis(s) {
+        document.getElementById(s).style.transform = 'rotate(' + degree + 'deg)';
+        document.getElementById(s).style.transition = 'transform 2s';
+        degree += 360;
+        if (degree >= 3600) {
+            degree = 0; 
+        }
+        
+
+        
+    }
+
+    function enlargeImage(s,n,nn){
+      document.getElementById(n).style.visibility = 'visible';
+      document.getElementById(s).style.backgroundColor = "orange";
+      document.getElementById(s).style.transform = 'scale(1.2)';
+      document.getElementById(s).style.transition = 'transform 1s';
+      document.body.classList.add('on');
+      if (document.getElementById(nn).style.filter === "blur(50px)") {
+      document.getElementById(nn).style.filter = "none";
+      }
+    }
+
+
+    function resetImage(s,n,nn){
+      if (document.getElementById(nn).style.filter === "none"&&isblur==1) {
+      document.getElementById(nn).style.filter = "blur(50px)";
+      }
+      document.getElementById(n).style.visibility = 'hidden';
+      if(x%2==0)
+       document.getElementById(s).style.backgroundColor = "#F4E3C6";
+      else 
+      document.getElementById(s).style.backgroundColor = "#463f33";
+        document.body.classList.remove('on');
+        document.getElementById(s).style.transform = 'scale(1)';
+        document.getElementById(s).style.transition = 'transform 1.5s';
+    }
+    function blurimages(){
+      if (document.getElementById('11').style.filter === "blur(50px)") {
+      document.getElementById('11').style.filter = "none";
+      isblur = 0;
+      localStorage.setItem("isblur", isblur);
+      } else {
+       document.getElementById('11').style.filter = "blur(50px)";
+       isblur = 1; 
+        localStorage.setItem("isblur", isblur);
+      }
+        if (document.getElementById('22').style.filter === "blur(50px)") {
+      document.getElementById('22').style.filter = "none";
+       isblur = 0;
+      localStorage.setItem("isblur", isblur);
+      } else {
+       document.getElementById('22').style.filter = "blur(50px)";
+          isblur = 1;
+      localStorage.setItem("isblur", isblur);
+      }
+        if (document.getElementById('33').style.filter === "blur(50px)") {
+      document.getElementById('33').style.filter = "none";
+       isblur = 0;
+      localStorage.setItem("isblur", isblur);
+      } else {
+       document.getElementById('33').style.filter = "blur(50px)";
+          isblur = 1;
+      localStorage.setItem("isblur", isblur);
+      }
+        if (document.getElementById('44').style.filter === "blur(50px)") {
+      document.getElementById('44').style.filter = "none";
+       isblur = 0;
+      localStorage.setItem("isblur", isblur);
+      } else {
+       document.getElementById('44').style.filter = "blur(50px)";
+          isblur = 1;
+      localStorage.setItem("isblur", isblur);
+      }
+        if (document.getElementById('55').style.filter === "blur(50px)") {
+      document.getElementById('55').style.filter = "none"; 
+       isblur = 0;
+      localStorage.setItem("isblur", isblur);     
+      } else {
+       document.getElementById('55').style.filter = "blur(50px)";
+          isblur = 1;
+      localStorage.setItem("isblur", isblur);
+      }
+        if (document.getElementById('66').style.filter === "blur(50px)") { 
+      document.getElementById('66').style.filter = "none";
+       isblur = 0;
+      localStorage.setItem("isblur", isblur);
+      } else {
+        document.getElementById('66').style.filter = "blur(50px)";
+           isblur = 1;
+      localStorage.setItem("isblur", isblur);
+        }
+          if (document.getElementById('77').style.filter === "blur(50px)") {
+      document.getElementById('77').style.filter = "none";   
+       isblur = 0;
+      localStorage.setItem("isblur", isblur); 
+      } else {
+       document.getElementById('77').style.filter = "blur(50px)";  
+          isblur = 1;
+      localStorage.setItem("isblur", isblur);
+      }
+        if (document.getElementById('88').style.filter === "blur(50px)") { 
+      document.getElementById('88').style.filter = "none";
+       isblur = 0;
+      localStorage.setItem("isblur", isblur);
+      } else {
+       document.getElementById('88').style.filter = "blur(50px)";
+          isblur = 1;
+      localStorage.setItem("isblur", isblur);
+      }
+        if (document.getElementById('99').style.filter === "blur(50px)") { 
+      document.getElementById('99').style.filter = "none";
+       isblur = 0;
+      localStorage.setItem("isblur", isblur);
+      } else {
+       document.getElementById('99').style.filter = "blur(50px)";
+          isblur = 1;
+      localStorage.setItem("isblur", isblur);
+      }
+        if (document.getElementById('110').style.filter === "blur(50px)") {
+      document.getElementById('110').style.filter = "none";
+       isblur = 0;
+      localStorage.setItem("isblur", isblur);
+      } else {
+       document.getElementById('110').style.filter = "blur(50px)";
+      isblur = 1;
+      localStorage.setItem("isblur", isblur);
+      }
+    }
+    </script>
+<h1 id="title">MUSEUM OF USELESS STUFF</h1>
+
+<ul>
+  <li><a id="home" href="index.html">HOME</a></li>
+  <li><a id="gallery" href="gallery.html">GALLERY</a></li>
+ 
+</ul>
+<button id="blur" onclick="blurimages()">BLur</button>
+<button id="theme" onclick="toggleThemeFromButton()">🌗</button>
+<audio src="museum-cafe-55154.mp3" id="audio" loop> </audio>
+<img id="sound" src="vecteezy_volume-sound-icon-black_22691818.png" onclick="toggleSoundfrombutton()">
+<div class="gallery">
+<div id="imgg1" onmouseover="enlargeImage('imgg1','1','11')" onmouseout="resetImage('imgg1','1','11')" >
+<img  class="imgsize" id="11" src="download (1).jpg" onclick="rotatethis('11')">
+<p class="gar" id="1">"The broom's taking a break, leaning against the wall. Cleaning is so yesterday."</p>
+</div>
+<div id="imgg2" onmouseover="enlargeImage('imgg2','2','22')" onmouseout="resetImage('imgg2','2','22')">
+<img class="imgsize" id="22" src="broom.webp" onclick="rotatethis('22')">
+<p class="gal" id="2">The broom's taking a break, leaning against the wall. Cleaning is so yesterday.</p>
+</div>
+<div id="imgg3" onmouseover="enlargeImage('imgg3','3','33')" onmouseout="resetImage('imgg3','3','33')">
+<img class="imgsize" id="33" src="mug.webp" onclick="rotatethis('33')">
+<p class="gar" id="3">Blue can, detached spout. 'I'll water plants... maybe next century.</p>
+</div>
+<div id="imgg4" onmouseover="enlargeImage('imgg4','4','44')" onmouseout="resetImage('imgg4','4','44')">
+<img class="imgsize" id="44" src="shoes.webp" onclick="rotatethis('44')">
+<p class="gal" id="4">High heels that think they’re flippers. Land or sea? Why not both?</p>
+</div>
+<div id="imgg5" onmouseover="enlargeImage('imgg5','5','55')" onmouseout="resetImage('imgg5','5','55')">
+<img class="imgsize" id="55" src="useless-candle.webp" onclick="rotatethis('55')">
+<p class="gar" id="5">"The broom's taking a break, leaning against the wall. Cleaning is so yesterday."</p>
+</div>
+<div id="imgg6" onmouseover="enlargeImage('imgg6','6','66')" onmouseout="resetImage('imgg6','6','66')">
+<img class="imgsize" id="66" src="useless-fork-two.webp" onclick="rotatethis('66')">
+<p class="gal" id="6">Fork on a plate with a keychain. Because cutlery doubles as jewelry. #Multipurpose</p>
+</div>
+<div id="imgg7" onmouseover="enlargeImage('imgg7','7','77')" onmouseout="resetImage('imgg7','7','77')">
+<img class="imgsize"id="77" src="useless-hangers.webp" onclick="rotatethis('77')">
+<p class="gar" id="7">Three hangers in a pyramid of confusion. 'Am I a coat rack or abstract art?</p>
+</div>
+<div id="imgg8" onmouseover="enlargeImage('imgg8','8','88')" onmouseout="resetImage('imgg8','8','88')" >
+<img class="imgsize" id="88" src="useless-pot.webp" onclick="rotatethis('88')">
+<p class="gal" id="8">Two handles, zero clue. Paralysis by design. Which one to grab? Both are confusing.</p>
+</div>
+<div id="imgg9" onmouseover="enlargeImage('imgg9','9','88')" onmouseout="resetImage('imgg9','9','99')">
+<img class="imgsize" id="99" src="useless-spoon.webp" onclick="rotatethis('99')">
+<p class="gar" id="9">Spoon cutting off mid-bowl. 'You don’t deserve to see my full glory.' Art, they say.</p>
+</div>
+<div id="imgg10" onmouseover="enlargeImage('imgg10','10','110')" onmouseout="resetImage('imgg10','10','110')">
+<img class="imgsize" id="110" src="useless-wellies.webp" onclick="rotatethis('110')">
+<p class="gal" id="10">Yellow open-toe boots, bright enough to blind. Fashion over function, always.</p>
+</div>
+</div>
+</body>
+</html> 

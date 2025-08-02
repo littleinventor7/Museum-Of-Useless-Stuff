@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Museum Of Useless Stuff</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+<body onload="applySound(y);">
+  <script>
+   let x = parseInt(localStorage.getItem("x")) || 0;
+    if (x >= 2) {x = 0;}
+   let y = parseInt(localStorage.getItem("y")) || 0;
+    if (y >= 2) y = 0;
+    let degree = 360;
+    applyTheme(x); 
+    function applyTheme(themeIndex) {
+         if(themeIndex%2){ 
+           document.body.classList.add('dark-theme');
+            document.getElementById("wel").style.color = "#F4E3C6";
+            document.getElementById("phome").style.color = "#F4E3C6";
+            document.getElementById("title").style.color = "#F4E3C6";
+            document.getElementById("home").style.color = "#F4E3C6";
+            document.getElementById("gallery").style.color = "#F4E3C6";
+            document.getElementById("guestbook").style.color = "#F4E3C6";
+            }
+            else{
+               document.body.classList.remove('dark-theme');
+            document.getElementById("wel").style.color = "#6F4D29";
+            document.getElementById("phome").style.color = "#6F4D29";
+            document.getElementById("title").style.color = "#6F4D29";
+            document.getElementById("home").style.color = "#6F4D29";
+            document.getElementById("gallery").style.color = "#6F4D29";
+            document.getElementById("guestbook").style.color = "#6F4D29";
+            }
+    }
+    function toggleThemeFromButton() {
+          x = (x + 1) % 2;
+        localStorage.setItem("x", x);
+            applyTheme(x);
+        }
+    
+    applySound(y);
+    function toggleSoundfrombutton() {
+        y = (y + 1) % 2;
+        localStorage.setItem("y", y);
+            applySound(y);
+    }
+    function applySound(y) {
+        if(y%2 === 0) {
+            document.getElementById('sound').src = 'vecteezy_volume-sound-icon-black_22691834.png';
+            document.getElementById('audio').play();
+        } else {
+            document.getElementById('sound').src = 'vecteezy_volume-sound-icon-black_22691818.png';
+            document.getElementById('audio').pause();
+       }
+       
+    }
+    degree = 360;
+    function rotatethis() {
+        const img = document.getElementById('homeimgw');
+        img.style.transform = 'rotate(' + degree + 'deg)';
+        img.style.transition = 'transform 2s';
+        degree += 360;
+        if (degree >= 3600) {
+            degree = 0; 
+        }
+     
+    }
+    </script>
+<h1 id="title">MUSEUM OF USELESS STUFF</h1>
+
+<ul>
+  <li><a id="home" href="index.html">HOME</a></li>
+  <li><a id="gallery" href="gallery.html">GALLERY</a></li>
+</ul>
+<button id="theme" onclick="toggleThemeFromButton()">🌗</button>
+<audio src="museum-cafe-55154.mp3" id="audio" loop> </audio>
+<img id="sound" src="vecteezy_volume-sound-icon-black_22691818.png" onclick="toggleSoundfrombutton()">
+<img id="homeimgw" src="download (1).jpg" onclick="rotatethis()">
+<p id="wel">Welcome!</p>
+<p id="phome">In this museum we display treasures that no one has seen before.</p>
+</body>
+</html> 
