@@ -51,7 +51,7 @@ li a:hover:not(.active) {
    margin-top: 50px;
    margin-left: 370px;
 width: 500px;
-height: 300px;
+height: 330px;
 border: 1px solid black;
  border-radius: 4%;
  padding: 20px;
@@ -231,3 +231,13 @@ border: 1px solid black;
     height: 30px;
     border-radius: 4%;
 }
+#submit {
+    margin-top: 20px;
+    margin-left: 185px;
+    width: 100px;
+    height: 30px;
+    border-radius: 4%;
+    background-color: #c6b9a1;
+    color: var(--main-text-color);
+      transition: color 0.3s ease;
+}   
